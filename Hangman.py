@@ -1,3 +1,10 @@
+import random
+
+def word():
+    words = ["fire", "water", "earth", "air", "smoke", "plasma", "mist", "gas", "shawn"]
+    word = random.choice(words)
+    return word
+
 def hangman(word):
     wrong = 0
     stages = ["",
@@ -15,7 +22,7 @@ def hangman(word):
     print("Welcome to Hangman")
     while wrong < len(stages) - 1:
         print("\n")
-        msg = "Guess a letter"
+        msg = "Guess a letter: "
         char = input(msg)
         if char in rletters:
             cind = rletters \
@@ -40,4 +47,8 @@ def hangman(word):
         print("You lose! It was {}."
               .format(word))
 
-hangman("cat")
+def main():
+    choice = word()
+    hangman(choice)
+
+main()
